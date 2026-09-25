@@ -39,14 +39,57 @@ Where:
    * Compute the phase-modulated signal $s(t) = A_c \cos(2\pi f_c t + k_p m(t))$.
 6. **Plot the Signals:**
    * Use Scilab's plotting commands (`subplot`, `plot`, `xtitle`, `xgrid`) to display message, carrier, and modulated signals.
+## CODE
+clc;
+clear;
+close;
 
----
-TABULATION:
-<img width="1599" height="899" alt="image" src="https://github.com/user-attachments/assets/da9b3e86-c964-4672-9f33-bdfb0a6b27c2" />
+// Time
+t = 0:0.00001:0.01;
 
+// Message signal
+fm = 500;
+Am = 7;
+m = Am*sin(2*%pi*fm*t);
 
-## MODEL GRAPH
-<img width="1599" height="899" alt="image" src="https://github.com/user-attachments/assets/8050c418-fb13-4b66-868b-5e471cc11783" />
+// Carrier signal
+fc = 5000;
+Ac = 1;
+c = Ac*cos(2*%pi*fc*t);
 
-Result The message signal, carrier signal, and phase-modulated (PM) signal will be displayed in separate plots.
+// Phase modulation
+kp = 2;
+pm = Ac*cos(2*%pi*fc*t + kp*m);
 
+// Plot Message Signal
+subplot(3,1,1);
+plot(t,m);
+xlabel("Time (s)");
+ylabel("Amplitude");
+title("Message Signal (m(t))");
+
+// Plot Carrier Signal
+subplot(3,1,2);
+plot(t,c);
+xlabel("Time (s)");
+ylabel("Amplitude");
+title("Carrier Signal (c(t))");
+
+// Plot PM Signal
+subplot(3,1,3);
+plot(t,pm);
+xlabel("Time (s)");
+ylabel("Amplitude");
+title("Phase Modulated Signal (PM)");
+
+## TABULATION
+<img width="1600" height="848" alt="image" src="https://github.com/user-attachments/assets/d0a91f89-e34a-43c7-a65d-2864b2754781" />
+
+## CALCULATION
+<img width="1600" height="1356" alt="image" src="https://github.com/user-attachments/assets/c848f018-9b6e-479f-bf6a-729db0114ac1" />
+
+## OUTPUT
+<img width="1761" height="884" alt="image" src="https://github.com/user-attachments/assets/e476142d-acb9-4ed9-8301-7ea993a7a996" />
+
+## RESULT
+Thus, the phase modulator (PM) signal was successfully generated with SCILAB.
