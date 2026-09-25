@@ -41,45 +41,76 @@ Where:
    * Use Scilab's plotting commands (`subplot`, `plot`, `xtitle`, `xgrid`) to display message, carrier, and modulated signals.
 ## CODE
 clc;
+
 clear;
+
 close;
 
 // Time
+
 t = 0:0.00001:0.01;
 
 // Message signal
+
 fm = 500;
+
 Am = 7;
+
 m = Am*sin(2*%pi*fm*t);
 
 // Carrier signal
+
+
+
 fc = 5000;
+
 Ac = 1;
+
 c = Ac*cos(2*%pi*fc*t);
 
 // Phase modulation
+
 kp = 2;
+
 pm = Ac*cos(2*%pi*fc*t + kp*m);
 
 // Plot Message Signal
+
 subplot(3,1,1);
+
 plot(t,m);
+
 xlabel("Time (s)");
+
+
 ylabel("Amplitude");
+
 title("Message Signal (m(t))");
 
 // Plot Carrier Signal
+
+
 subplot(3,1,2);
+
 plot(t,c);
+
 xlabel("Time (s)");
+
 ylabel("Amplitude");
+
 title("Carrier Signal (c(t))");
 
 // Plot PM Signal
+
 subplot(3,1,3);
+
 plot(t,pm);
+
+
 xlabel("Time (s)");
+
 ylabel("Amplitude");
+
 title("Phase Modulated Signal (PM)");
 
 ## TABULATION
